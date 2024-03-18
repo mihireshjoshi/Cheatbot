@@ -27,3 +27,55 @@ Our commitment to innovation is reflected in our choice of technologies:
 
 To get started with CheatBot, clone this repository and follow the setup instructions commented in the code itself. CheatBot is designed to be user-friendly, ensuring you can focus on asking questions and getting insights right away.
 
+<br>
+<br>
+<br>
+
+# Retrieval-Augmented Generation (RAG) Explained
+
+Welcome to the technical documentation of the Retrieval-Augmented Generation (RAG) model. RAG combines the power of large language models with retrieval mechanisms to enhance the generation of text, making it particularly effective for applications like question answering, document summarization, and more. This README aims to provide a clear understanding of how RAG operates technically.
+
+## Overview
+
+Retrieval-Augmented Generation (RAG) is a hybrid approach that marries the generative capabilities of transformer-based models with the information retrieval (IR) prowess of document databases. By fetching relevant context before generating responses, RAG models can produce more accurate, informed, and contextually rich text.
+
+## How RAG Works
+
+### Step 1: Query Processing
+
+- **Input**: The model receives a query or prompt that needs an informative response.
+- **Processing**: The query is encoded using a transformer-based encoder.
+
+### Step 2: Document Retrieval
+
+- **Retrieval**: The encoded query is used to search a document database or knowledge base to find relevant documents. This is often accomplished via vector similarity search.
+- **Selection**: The top-N most relevant documents are selected for the next phase.
+
+### Step 3: Context Integration and Response Generation
+
+- **Context Integration**: The selected documents are concatenated with the original query to serve as extended context.
+- **Generation**: A generative model, such as GPT or another transformer-based model, uses this enriched context to generate a response.
+
+## Architecture
+
+
+- **Encoder**: Encodes the query into a high-dimensional vector.
+- **Retrieved Documents**: A set of documents retrieved based on the similarity to the query vector.
+- **Decoder**: Generates the final response using both the original query and the context provided by the retrieved documents.
+
+## Implementation
+
+This section covers the basic setup and implementation details for a RAG model using PyTorch and Hugging Face's Transformers library.
+
+### Dependencies
+
+- Python 3.6+
+- PyTorch
+- Transformers
+- Faiss (for efficient similarity search)
+
+### Quick Start
+
+```bash
+git clone https://github.com/mihireshjoshi/Cheatbot.git
+cd Cheatbot
