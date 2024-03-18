@@ -58,24 +58,64 @@ Retrieval-Augmented Generation (RAG) is a hybrid approach that marries the gener
 
 ## Architecture
 
+Our chatbot's architecture is designed to effectively process queries, retrieve relevant information, and generate responses that are both accurate and engaging. The key components of our architecture include:
 
-- **Encoder**: Encodes the query into a high-dimensional vector.
-- **Retrieved Documents**: A set of documents retrieved based on the similarity to the query vector.
-- **Decoder**: Generates the final response using both the original query and the context provided by the retrieved documents.
+- **Encoder**: Utilizes `langchain` and its underlying NLP capabilities to encode the query into a high-dimensional vector, capturing the essence of the user's request.
+
+- **Retrieved Documents**: Leverages `chromadb`, a vector database optimized for storing and querying embeddings. It facilitates the rapid retrieval of documents based on semantic similarity to the query vector, ensuring that the most relevant information is used in generating responses.
+
+- **Decoder**: Built on top of generative models from `google.generativeai`, this component synthesizes the information from retrieved documents with the original query. It ensures the final response is both informative and contextually aligned with the user's intent.
 
 ## Implementation
 
-This section covers the basic setup and implementation details for a RAG model using PyTorch and Hugging Face's Transformers library.
+The implementation of our RAG chatbot involves several key libraries and frameworks to ensure high performance and scalability:
 
-### Dependencies
+## Dependencies
 
-- Python 3.6+
-- PyTorch
-- Transformers
-- Faiss (for efficient similarity search)
+Our project relies on several key libraries and frameworks to function correctly. Below is a breakdown of each dependency and its role in our chatbot's development:
 
+### PyPDF2
+
+- **Usage**: Allows our chatbot to read and extract text from PDF files. This is crucial for processing and incorporating information contained in PDF documents into the chatbot's knowledge base.
+
+### langchain
+
+- **Usage**: Provides tools and utilities for building and managing language models. Langchain is instrumental in integrating our chatbot with various NLP and language generation functionalities.
+
+### python-dotenv
+
+- **Usage**: Manages environment variables. It enables our project to securely store and access configuration settings without hard-coding them into the source code.
+
+### pandas
+
+- **Usage**: Offers data manipulation and analysis capabilities. With pandas, we can efficiently organize and preprocess the data that feeds into our chatbot's knowledge base.
+
+### chromadb
+
+- **Usage**: A vector database optimized for storing and querying embeddings. ChromaDB facilitates the rapid retrieval of relevant documents based on semantic similarity, enhancing our chatbot's ability to find pertinent information.
+
+### google-api-python-client and google.generativeai
+
+- **Usage**: These libraries allow us to interact with Google's Generative AI and other APIs, enabling our chatbot to leverage state-of-the-art generative models for creating responses.
+
+### tqdm
+
+- **Usage**: Provides a progress bar for our data processing and training scripts, improving the user experience during long-running operations.
+
+### IPython.display.Markdown
+
+- **Usage**: Enables the rendering of Markdown within Jupyter notebooks. This is particularly useful for documentation and presenting the chatbot's output in a more readable format.
+
+## Installation
+
+You can easily install all required dependencies with the following pip command:
+
+```bash
+pip install PyPDF2 langchain python-dotenv pandas chromadb google-api-python-client tqdm ipython
+```
 ### Quick Start
 
 ```bash
 git clone https://github.com/mihireshjoshi/Cheatbot.git
 cd Cheatbot
+```
