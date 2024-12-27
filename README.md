@@ -119,3 +119,6 @@ pip install PyPDF2 langchain python-dotenv pandas chromadb google-api-python-cli
 git clone https://github.com/mihireshjoshi/Cheatbot.git
 cd Cheatbot
 ```
+
+
+This is with respect to traditional RAG System 
